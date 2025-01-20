@@ -51,6 +51,9 @@ func main() {
 		weaviate.WithHost("localhost:"+cmp.Or(os.Getenv("WVPORT"), "9035")),
 		weaviate.WithIndexName("Document"),
 	)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	server := &ragServer{
 		ctx:          ctx,
